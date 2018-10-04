@@ -4,7 +4,7 @@ class CreateLoans < ActiveRecord::Migration[5.2]
       t.string :loan_type
       t.integer :amount
 
-      t.references :user, index: true, foreign_key: true
+      t.references :client, index: true, foreign_key: true
       t.timestamps
     end
   end
