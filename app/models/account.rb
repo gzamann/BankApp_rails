@@ -4,7 +4,7 @@ class Account < ApplicationRecord
   validates :number, presence: true, numericality:{only_integer:true}, length: {maximum: 10}
   validate  :balance_valid
 
-  belongs_to :user
+  belongs_to :clients
   has_many :transactions
 
   private
