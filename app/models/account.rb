@@ -6,6 +6,7 @@ class Account < ApplicationRecord
 
   belongs_to :client
   has_many :transactions
+  has_many :cards
 
   private
 
@@ -14,5 +15,4 @@ class Account < ApplicationRecord
       errors.add(:balance, "Account balance is too low.")
     end
   end 
-
 end

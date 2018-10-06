@@ -15,7 +15,7 @@ class Transaction < ApplicationRecord
       end
     end
   end
-  
+
   def do_transaction
       if self.t_type == "w"
         updated_balance = self.account.balance - self.amount

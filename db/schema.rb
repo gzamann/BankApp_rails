@@ -33,10 +33,10 @@ ActiveRecord::Schema.define(version: 2018_10_04_142454) do
   create_table "cards", force: :cascade do |t|
     t.string "card_type"
     t.integer "number"
-    t.integer "client_id"
+    t.integer "account_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["client_id"], name: "index_cards_on_client_id"
+    t.index ["account_id"], name: "index_cards_on_account_id"
   end
 
   create_table "clients", force: :cascade do |t|

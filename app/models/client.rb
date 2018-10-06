@@ -5,5 +5,4 @@ class Client < ApplicationRecord
 
   has_many :accounts
   has_many :loans
-  has_many :cards
 end
