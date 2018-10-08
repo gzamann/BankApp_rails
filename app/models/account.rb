@@ -15,4 +15,5 @@ class Account < ApplicationRecord
       errors.add(:balance, "Account balance is too low.")
     end
   end 
+
 end
