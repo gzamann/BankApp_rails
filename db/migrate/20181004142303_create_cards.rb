@@ -3,8 +3,8 @@ class CreateCards < ActiveRecord::Migration[5.2]
     create_table :cards do |t|
       t.string :card_type
       t.integer :number
-
-      t.references :client, index: true, foreign_key: true
+      
+      t.references :account, index: true, foreign_key: true
       t.timestamps
     end
   end
