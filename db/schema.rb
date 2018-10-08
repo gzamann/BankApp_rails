@@ -13,7 +13,7 @@
 ActiveRecord::Schema.define(version: 2018_10_04_142454) do
 
   create_table "accounts", force: :cascade do |t|
-    t.integer "balance"
+    t.decimal "balance"
     t.string "a_type"
     t.integer "number"
     t.integer "client_id"
