@@ -1,4 +1,4 @@
-FactoryBot.define do
+FactoryGirl.define do
   factory :transaction do
     account_id { FactoryGirl.create(:account).id }
     t_type {'w'}

@@ -1,4 +1,4 @@
-FactoryBot.define do
+FactoryGirl.define do
   factory :loan do
     client_id { FactoryGirl.create(:client).id }
     loan_type {'Home'}

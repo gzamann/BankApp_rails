@@ -1,4 +1,4 @@
-FactoryBot.define do
+FactoryGirl.define do
   factory :client do
       branch_id { FactoryGirl.create(:branch).id }
       name {Faker::Name.name}

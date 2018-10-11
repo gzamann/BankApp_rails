@@ -1,4 +1,4 @@
-FactoryBot.define do
+FactoryGirl.define do
   factory :account do
     client_id { FactoryGirl.create(:client).id }
     balance {Faker::Number.number(4)}
