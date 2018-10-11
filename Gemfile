@@ -4,9 +4,6 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.4.4'
 
 
-gem 'rspec-rails', '~> 3.7'
-gem 'factory_bot_rails'
-gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 
 gem 'therubyracer'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -62,6 +59,9 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
+  gem 'rspec-rails', '~> 3.7'
+  gem 'factory_bot_rails'
+  gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
