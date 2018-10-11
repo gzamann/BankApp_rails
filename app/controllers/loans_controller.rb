@@ -85,6 +85,6 @@ class LoansController < ApplicationController
     
   private
     def loan_params
-      params.require(:loan).permit(:name, :address, :phone_no)
+      params.require(:loan).permit(:loan_type, :amount, :client_id)
     end
 end
