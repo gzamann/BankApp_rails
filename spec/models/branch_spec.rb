@@ -1,11 +1,19 @@
 require 'rails_helper'
 
 RSpec.describe Branch, type: :model do
-  # pending "add some examples to (or delete) #{__FILE__}"
-  it 'has a valid factory' do
-    FactoryGirl.build(:branch).should be_valid
+  context 'validate' do
+  it 'is a valid factory' do
+    branch = FactoryBot.build(:branch)
+    expect(branch).to be_valid
   end
-  it 'missing address' do
-    FactoryGirl.build(:branch, address: nil).should_not be_valid
+  it 'is invalid to have address nil' do
+    expect(FactoryBot.build(:branch, address: nil)).to be_invalid
   end
+  it 'is invalid to exceed 12 char for ifsc' do
+    expect(FactoryBot.build(:branch, ifsc: '1234567891234')).to be_invalid
+  end
+  it 'is invalid take string for number'
+    expect(FactoryBot.build(:branch, number: 'asdf12')).to be_invalid
+  end
+end
 end

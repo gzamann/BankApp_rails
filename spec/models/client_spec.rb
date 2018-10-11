@@ -1,5 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Client, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it 'has a valid factory' do
+    FactoryBot.build(:client).should be_valid
+  end
 end
