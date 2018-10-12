@@ -1,6 +1,6 @@
 class Transaction < ApplicationRecord
   validates :t_type, presence: true, length: {maximum: 1}, inclusion: { in: %w(w d)}
-  validates :amount, presence: true, numericality:{only_integer:true}, length: {maximum: 12}
+  validates :amount, presence: true, numericality:{:greater_than=>0}, length: {maximum: 6}
   validate  :check_withdraw
   
   belongs_to :account
