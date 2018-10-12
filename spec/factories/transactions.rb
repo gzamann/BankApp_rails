@@ -1,7 +1,9 @@
 FactoryBot.define do
   factory :transaction do
+    t_type {'d'}
+    amount {Faker::Number.number(2)}
     account_id { FactoryBot.create(:account).id }
-    t_type {'w'}
-    amount {Faker::Number.number(3)}
+
+    association :account, factory: :account
   end
 end
