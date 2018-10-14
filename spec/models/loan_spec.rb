@@ -53,4 +53,25 @@ RSpec.describe Loan, type: :model do
   it 'has valid loan_type' do
     expect(FactoryBot.build(:loan, loan_type:'Business')).to be_valid
   end
+  it 'has months less than 121' do
+    expect(FactoryBot.build(:loan, months: '121')).to be_invalid
+  end
+  it 'has valid months' do
+    expect(FactoryBot.build(:loan, months: '24')).to be_valid
+  end
+  it 'has integer months' do
+    expect(FactoryBot.build(:loan,months: 'abc')).to be_invalid
+  end
+  it 'only has positive integer in months' do
+    expect(FactoryBot.build(:loan,months: '-1')).to be_invalid
+  end
+  it 'must have months' do
+    expect(FactoryBot.build(:loan, months: nil)).to be_invalid
+  end
+  it 'can not have months blank' do
+    expect(FactoryBot.build(:loan, months: '')).to be_invalid
+  end
+  # it 'always has time_of_issue' do
+  #   expect(FactoryBot.build(:loan, time_of_issue:nil)).to be_invalid
+  # end
 end

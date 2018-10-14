@@ -7,7 +7,7 @@ class Card < ApplicationRecord
 
   belongs_to :account
 
-  after_initialize :validity
+  # after_initialize :validity
 
   def validity
     self.date_of_issue = Time.now

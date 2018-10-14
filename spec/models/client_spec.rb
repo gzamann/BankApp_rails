@@ -49,4 +49,16 @@ RSpec.describe Client, type: :model do
   it 'has a valid email' do
     expect(FactoryBot.build(:client, email: 'test@gmail.com')).to be_valid
   end
+  it 'allows email as nil' do
+    expect(FactoryBot.build(:client, email:nil)).to be_valid
+  end
+  it 'can not have pan less than 10 char' do
+    expect(FactoryBot.build(:client, pan: '123fa')).to be_invalid
+  end
+  it 'can only have 10 char pan' do
+    expect(FactoryBot.build(:client, pan: '123456lajsdf')).to be_invalid
+  end
+  it 'has a valid pan' do
+    expect(FactoryBot.build(:client, pan: 'ABCDE12342')).to be_valid
+  end
 end

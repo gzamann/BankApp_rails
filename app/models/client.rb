@@ -1,5 +1,5 @@
 class Client < ApplicationRecord
-  include Address_form, Address_validations
+  # include Address_form, Address_validations
 
   validates :name, presence: true, length:{maximum:30}, allow_blank: false
   validates :age, numericality:{:greater_than=>15,:less_than=>100}, length:{is: 2}
@@ -12,5 +12,5 @@ class Client < ApplicationRecord
   has_many :accounts
   has_many :loans
 
-  after_initialize :form_address
+  # after_initialize :form_address
 end

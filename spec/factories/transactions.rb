@@ -3,5 +3,7 @@ FactoryBot.define do
       t_type {'d'}
       amount {Faker::Number.number(3)}
       account_id { FactoryBot.create(:account).id}
+      
+      association :account
     end
 end
