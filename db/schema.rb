@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 2018_10_04_142454) do
     t.string "name"
     t.integer "age"
     t.integer "number"
+    t.string "email"
     t.integer "branch_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
