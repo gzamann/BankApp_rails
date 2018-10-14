@@ -24,8 +24,12 @@ ActiveRecord::Schema.define(version: 2018_10_04_142454) do
 
   create_table "branches", force: :cascade do |t|
     t.string "ifsc"
-    t.string "address"
     t.integer "number"
+    t.string "street"
+    t.string "city"
+    t.string "state"
+    t.string "pincode"
+    t.string "address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -33,6 +37,10 @@ ActiveRecord::Schema.define(version: 2018_10_04_142454) do
   create_table "cards", force: :cascade do |t|
     t.string "card_type"
     t.integer "number"
+    t.integer "cvv"
+    t.integer "pass"
+    t.datetime "date_of_issue"
+    t.datetime "date_of_expiry"
     t.integer "account_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -44,6 +52,13 @@ ActiveRecord::Schema.define(version: 2018_10_04_142454) do
     t.integer "age"
     t.integer "number"
     t.string "email"
+    t.string "street"
+    t.string "city"
+    t.string "state"
+    t.string "pincode"
+    t.string "pan"
+    t.string "address"
+    t.date "dob"
     t.integer "branch_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -53,9 +68,10 @@ ActiveRecord::Schema.define(version: 2018_10_04_142454) do
   create_table "loans", force: :cascade do |t|
     t.string "loan_type"
     t.integer "amount"
-    t.string "time_of_issue"
     t.integer "months"
-    t.integer "rate"
+    t.float "rate"
+    t.datetime "time_of_issue"
+    t.datetime "end_of_loan"
     t.integer "client_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
