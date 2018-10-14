@@ -53,6 +53,9 @@ ActiveRecord::Schema.define(version: 2018_10_04_142454) do
   create_table "loans", force: :cascade do |t|
     t.string "loan_type"
     t.integer "amount"
+    t.string "time_of_issue"
+    t.integer "months"
+    t.integer "rate"
     t.integer "client_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
