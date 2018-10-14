@@ -10,12 +10,12 @@ RSpec.describe Client, type: :model do
   it 'is invalid to nil age' do
     expect(FactoryBot.build(:client, age:nil)).to be_invalid
   end
-  # it 'does not contain invalid branch_id' do
-  #   expect(FactoryBot.build(:client, branch_id:'q23jJ')).to be_invalid
-  # end
-  # it 'is invalid to nil branch_id' do
-  #   expect(FactoryBot.build(:client, branch_id:nil)).to be_invalid
-  # end
+  it 'does not contain invalid branch_id' do
+    expect(FactoryBot.build(:client, branch_id:'q23jJ')).to be_invalid
+  end
+  it 'is invalid to nil branch_id' do
+    expect(FactoryBot.build(:client, branch_id:nil)).to be_invalid
+  end
   it 'is invalid to nil number' do
     expect(FactoryBot.build(:client, number:nil)).to be_invalid
   end
