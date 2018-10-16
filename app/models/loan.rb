@@ -7,7 +7,7 @@ class Loan < ApplicationRecord
 
   belongs_to :client
 
-  # after_initialize :time_issue
+  before_create :time_issue
 
   private
 

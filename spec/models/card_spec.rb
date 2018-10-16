@@ -56,4 +56,8 @@ RSpec.describe Card, type: :model do
   it 'has a valid pass' do
     expect(FactoryBot.build(:card, pass: '1234')).to be_valid
   end
+  it 'valid date_of_issue' do
+    a = FactoryBot.create(:card)
+    expect(a.date_of_issue).to eq (a.date_of_issue)
+  end
 end

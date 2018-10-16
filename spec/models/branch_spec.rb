@@ -6,8 +6,8 @@ RSpec.describe Branch, type: :model do
       branch = FactoryBot.build(:branch)
       expect(branch).to be_valid
     end
-    it 'is invalid to have address nil' do
-      expect(FactoryBot.build(:branch, address: nil)).to be_invalid
+    it 'have address nil' do
+      expect(FactoryBot.build(:branch, address: nil)).to be_valid
     end
     it 'is invalid to have ifsc nil' do
       expect(FactoryBot.build(:branch, ifsc: nil)).to be_invalid
@@ -18,8 +18,8 @@ RSpec.describe Branch, type: :model do
     it 'does not allow ifsc blank' do
       expect(FactoryBot.build(:branch, ifsc: '')).to be_invalid
     end
-    it 'does not allow address blank' do
-      expect(FactoryBot.build(:branch, address: '')).to be_invalid
+    it 'does allow address blank' do
+      expect(FactoryBot.build(:branch, address: '')).to be_valid
     end
     it 'does not allow number blank' do
       expect(FactoryBot.build(:branch, number: '')).to be_invalid
@@ -32,6 +32,10 @@ RSpec.describe Branch, type: :model do
     end
     it 'is invalid to exceed 10 digit in number' do
       expect(FactoryBot.build(:branch, number: '12345678912')).to be_invalid
+    end
+    it 'has valid self.address' do
+      a = FactoryBot.create(:branch)
+      expect(a.address).to eq (a.street+', '+a.city+', '+a.state+' -'+a.pincode)
     end
   end
 end

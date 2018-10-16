@@ -71,7 +71,13 @@ RSpec.describe Loan, type: :model do
   it 'can not have months blank' do
     expect(FactoryBot.build(:loan, months: '')).to be_invalid
   end
-  # it 'always has time_of_issue' do
-  #   expect(FactoryBot.build(:loan, time_of_issue:nil)).to be_invalid
-  # end
+  it 'always has time_of_issue' do
+    a = FactoryBot.create(:loan)
+    expect(a.time_of_issue).to eq (a.time_of_issue)
+  end
+  it 'has valid end_of_loan' do
+    a = FactoryBot.create(:loan)
+    monthss = a.months
+    expect(a.end_of_loan).to eq (a.time_of_issue+monthss.months)
+  end
 end
