@@ -6,4 +6,5 @@ Rspec for models
 Simplecov 100%
 ![simplecov index.html](simplecov.png?raw=true "simplecov")
 
-new
+Rubocop
+![Rubocop no offenses](rubocop.png?raw=true "rubocop")
