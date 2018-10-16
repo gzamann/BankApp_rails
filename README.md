@@ -5,3 +5,6 @@ Rspec for models
 
 Simplecov 100%
 ![simplecov index.html](/home/ken/bankapp/simplecov.png?raw=true "simplecov")
+
+Rubocop check
+![rubocop test](/home/ken/bankapp/rubocop.png?raw=true "Rubocop")

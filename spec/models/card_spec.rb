@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe Card, type: :model do
@@ -8,13 +10,13 @@ RSpec.describe Card, type: :model do
     expect(FactoryBot.build(:card, account_id: nil)).to be_invalid
   end
   it 'does not have blank account_id' do
-    expect(FactoryBot.build(:card, account_id:'')).to be_invalid
+    expect(FactoryBot.build(:card, account_id: '')).to be_invalid
   end
   it 'has a valid account_id' do
     expect(FactoryBot.build(:card, account_id: 'asdF129800')).to be_invalid
   end
   it 'must have integer account_id' do
-    expect(FactoryBot.build(:card, account_id:'1.134')).to be_invalid
+    expect(FactoryBot.build(:card, account_id: '1.134')).to be_invalid
   end
   it 'has a valid account_id' do
     dummyaccount = FactoryBot.create(:account)
@@ -33,13 +35,13 @@ RSpec.describe Card, type: :model do
     expect(FactoryBot.build(:card, number: '123456789112')).to be_valid
   end
   it 'has a valid cvv' do
-    expect(FactoryBot.build(:card, cvv:'123')).to be_valid
+    expect(FactoryBot.build(:card, cvv: '123')).to be_valid
   end
   it 'always have cvv' do
-    expect(FactoryBot.build(:card,cvv:nil)).to be_invalid
+    expect(FactoryBot.build(:card, cvv: nil)).to be_invalid
   end
   it 'does not take blank cvv' do
-    expect(FactoryBot.build(:card,cvv:'')).to be_invalid
+    expect(FactoryBot.build(:card, cvv: '')).to be_invalid
   end
   it 'always has pass' do
     expect(FactoryBot.build(:card, pass: nil)).to be_invalid
@@ -58,6 +60,6 @@ RSpec.describe Card, type: :model do
   end
   it 'valid date_of_issue' do
     a = FactoryBot.create(:card)
-    expect(a.date_of_issue).to eq (a.date_of_issue)
+    expect(a.date_of_issue).to eq a.date_of_issue
   end
 end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe Branch, type: :model do
@@ -35,7 +37,8 @@ RSpec.describe Branch, type: :model do
     end
     it 'has valid self.address' do
       a = FactoryBot.create(:branch)
-      expect(a.address).to eq (a.street+', '+a.city+', '+a.state+' -'+a.pincode)
+      add = a.street + ', ' + a.city + ', ' + a.state + ' -' + a.pincode
+      expect(a.address).to eq add
     end
   end
 end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe Account, type: :model do
@@ -8,13 +10,13 @@ RSpec.describe Account, type: :model do
     expect(FactoryBot.build(:account, client_id: nil)).to be_invalid
   end
   it 'does not have blank client_id' do
-    expect(FactoryBot.build(:account, client_id:'')).to be_invalid
+    expect(FactoryBot.build(:account, client_id: '')).to be_invalid
   end
   it 'has a valid client_id' do
     expect(FactoryBot.build(:account, client_id: 'asdF129800')).to be_invalid
   end
   it 'must have integer client_id' do
-    expect(FactoryBot.build(:account, client_id:'1.134')).to be_invalid
+    expect(FactoryBot.build(:account, client_id: '1.134')).to be_invalid
   end
   it 'has a valid client_id' do
     dummyclient = FactoryBot.create(:client)
@@ -24,7 +26,7 @@ RSpec.describe Account, type: :model do
     expect(FactoryBot.build(:account, number: nil)).to be_invalid
   end
   it 'does not allow number as blank' do
-    expect(FactoryBot.build(:account, number:'')).to be_invalid
+    expect(FactoryBot.build(:account, number: '')).to be_invalid
   end
   it 'has a valid number' do
     expect(FactoryBot.build(:account, number: '1234')).to be_valid
@@ -39,21 +41,21 @@ RSpec.describe Account, type: :model do
     expect(FactoryBot.build(:account, a_type: nil)).to be_invalid
   end
   it 'has valid a_type' do
-    expect(FactoryBot.build(:account, a_type:'Saving')).to be_valid
+    expect(FactoryBot.build(:account, a_type: 'Saving')).to be_valid
   end
   it 'has valid a_type' do
-    expect(FactoryBot.build(:account, a_type:'Current')).to be_valid
+    expect(FactoryBot.build(:account, a_type: 'Current')).to be_valid
   end
   it 'has valid a_type' do
-    expect(FactoryBot.build(:account, a_type:'FD')).to be_valid
+    expect(FactoryBot.build(:account, a_type: 'FD')).to be_valid
   end
   it 'has valid a_type' do
-    expect(FactoryBot.build(:account, a_type:'NRI')).to be_valid
+    expect(FactoryBot.build(:account, a_type: 'NRI')).to be_valid
   end
   it 'can not have invalid a_type' do
-    expect(FactoryBot.build(:account,a_type:'asf2123xca')).to be_invalid
+    expect(FactoryBot.build(:account, a_type: 'asf2123xca')).to be_invalid
   end
   it 'can not have number as a_type' do
-    expect(FactoryBot.build(:account, a_type:'1234')).to be_invalid
+    expect(FactoryBot.build(:account, a_type: '1234')).to be_invalid
   end
 end

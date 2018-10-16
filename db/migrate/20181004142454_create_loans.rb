@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Loan table
 class CreateLoans < ActiveRecord::Migration[5.2]
   def change
     create_table :loans do |t|
@@ -7,7 +10,7 @@ class CreateLoans < ActiveRecord::Migration[5.2]
       t.float :rate
       t.datetime :time_of_issue
       t.datetime :end_of_loan
-      
+
       t.references :client, index: true, foreign_key: true
       t.timestamps
     end
