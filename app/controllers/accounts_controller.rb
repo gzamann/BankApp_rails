@@ -3,81 +3,57 @@
 class AccountsController < ApplicationController
   skip_before_action :verify_authenticity_token
 
-  def new
-    @account = Account.new
-    respond_to do |format|
-      format.json { render json: { account: @account }, status: :ok }
-    end
+  def index
+    @accounts = Account.all
   end
 
-  def show
-    @account = Account.find(params[:id])
-    respond_to do |format|
-      format.json { render json: { account: @account }, status: :ok }
-    end
-  rescue ActiveRecord::RecordNotFound => e
-    respond_to do |format|
-      format.json { render json: { error: e.message }, status: :not_found }
-    end
+  def show; end
+
+  def new
+    @account = Account.new
   end
+
+  def edit; end
 
   def create
     @account = Account.new(account_params)
+
     respond_to do |format|
       if @account.save
-        format.json { render json: { account: @account }, status: :created }
+        format.html { redirect_to @account, notice: 'account was successfully created.' }
+        format.json { render :show, status: :created, location: @account }
       else
+        format.html { render :new }
+        format.json { render json: @account.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def update
+    respond_to do |format|
+      if @account.update(account_params)
+        format.html { redirect_to @account, notice: 'account was successfully updated.' }
+        format.json { render :show, status: :ok, location: @account }
+      else
+        format.html { render :edit }
         format.json { render json: @account.errors, status: :unprocessable_entity }
       end
     end
   end
 
   def destroy
-    @account = Account.find(params[:id])
+    @account.destroy
     respond_to do |format|
-      @account.destroy
-      format.json { render json: {}, status: :ok }
-    end
-  rescue ActiveRecord::RecordNotFound => e
-    respond_to do |format|
-      format.json { render json: { error: e.message }, status: :unprocessable_entity }
-    end
-  end
-
-  def index
-    @accounts = Account.all
-    respond_to do |format|
-      format.json { render json: { accounts: @accounts }, status: :ok }
-    end
-  end
-
-  def edit
-    @account = Account.find(params[:id])
-    respond_to do |format|
-      format.json { render json: { account: @account }, status: :ok }
-    end
-  rescue ActiveRecord::RecordNotFound => e
-    respond_to do |format|
-      format.json { render json: { error: e.message }, status: :not_found }
-    end
-  end
-
-  def update
-    @account = Account.find(params[:id])
-    respond_to do |format|
-      if @account.update(account_params)
-        format.json { render json: { account: @account }, status: :ok }
-      else
-        format.json { render json: @account.errors, status: :unprocessable_entity }
-      end
-    end
-  rescue StandardError => e
-    respond_to do |format|
-      format.json { render json: { error: e.message }, status: :unprocessable_entity }
+      format.html { redirect_to root_url, notice: 'account was successfully destroyed.' }
+      format.json { head :no_content }
     end
   end
 
   private
+
+  def find_account
+    @account = Account.find(params[:id])
+  end
 
   def account_params
     params.require(:account).permit(:a_type, :balance, :number, :client_id)
