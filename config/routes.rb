@@ -7,4 +7,6 @@ Rails.application.routes.draw do
   resources :transactions
   resources :cards
   resources :loans
+
+  root 'branches#index'
 end
