@@ -43,9 +43,9 @@ group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'factory_bot_rails'
   gem 'faker', git: 'https://github.com/stympy/faker.git', branch: 'master'
+  gem 'rails-controller-testing'
   gem 'rspec-rails', '~> 3.7'
   gem 'simplecov'
-  gem 'rails-controller-testing'
 end
 
 group :development do

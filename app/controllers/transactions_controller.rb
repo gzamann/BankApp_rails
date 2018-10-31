@@ -7,15 +7,13 @@ class TransactionsController < ApplicationController
     @transactions = Transaction.all
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @transaction = Transaction.new
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
     @transaction = Transaction.new(transaction_params)

@@ -7,15 +7,13 @@ class LoansController < ApplicationController
     @loans = Loan.all
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @loan = Loan.new
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
     @loan = Loan.new(loan_params)

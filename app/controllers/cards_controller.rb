@@ -7,15 +7,13 @@ class CardsController < ApplicationController
     @cards = Card.all
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @card = Card.new
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
     @card = Card.new(card_params)
@@ -56,7 +54,7 @@ class CardsController < ApplicationController
   def find_card
     @card = Card.find(params[:id])
   end
-  
+
   def card_params
     params.require(:card).permit(:card_type, :number, :account_id)
   end

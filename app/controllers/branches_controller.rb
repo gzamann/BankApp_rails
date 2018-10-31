@@ -8,15 +8,13 @@ class BranchesController < ApplicationController
     @branches = Branch.all
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @branch = Branch.new
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
     @branch = Branch.new(branch_params)
@@ -59,6 +57,6 @@ class BranchesController < ApplicationController
   end
 
   def branch_params
-    params.require(:branch).permit(:ifsc,:number,:street,:city,:state,:pincode,:address)
+    params.require(:branch).permit(:ifsc, :number, :street, :city, :state, :pincode, :address)
   end
 end
