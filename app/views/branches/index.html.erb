@@ -1,23 +1,23 @@
 <h1>Bank App</h1>
-<div>
+<div class="branchlist">
   <% @branches.each do |b| %>
     <table>
         <tbody>
           <tr>
             <td><strong>ifsc:</strong></td>
-            <td><%= (b.number)  %></td>
+            <td><%= b.ifsc  %></td>
           </tr>
           <tr>
             <td><strong>number:</strong></td>
-            <td><%=  %></td>
+            <td><%= b.number %></td>
           </tr>
           <tr>
             <td><strong>number:</strong></td>
-            <td><%=  %></td>
+            <td><%= b.number %></td>
           </tr>
           <tr>
             <td><strong>address:</strong></td>
-            <td><%=  %></td>
+            <td><%= b.address %></td>
           </tr>
           </tbody>
     </table>

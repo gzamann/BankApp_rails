@@ -1,5 +1,5 @@
 body{
-  background:#000;
+  background:#2A2E45;
   color: #eee;
   text-align: center;
   font-family: sans-serif;
@@ -7,4 +7,16 @@ body{
 h1{
   text-transform: uppercase;
   letter-spacing: 1.5px;
+}
+.branchlist{
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  grid-template-columns: 300px;
+}
+.branchlist table tr,td{
+  padding: 10px;
+  border: 1px solid #7A542E;
+}
+.branchlist table {
 }
