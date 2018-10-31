@@ -45,6 +45,7 @@ group :development, :test do
   gem 'faker', git: 'https://github.com/stympy/faker.git', branch: 'master'
   gem 'rspec-rails', '~> 3.7'
   gem 'simplecov'
+  gem 'rails-controller-testing'
 end
 
 group :development do
