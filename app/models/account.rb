@@ -1,19 +1,12 @@
+# frozen_string_literal: true
+
 class Account < ApplicationRecord
-  validates :balance, presence: true, length: {maximum: 12}, numericality: true
-  validates :a_type, presence: true, length: {maximum: 10}, inclusion: { in: %w(Saving Current NRI FD)}
-  validates :number, presence: true, numericality:{only_integer:true}, length: {maximum: 10}
-  validate  :balance_valid
+  validates :balance, length: { maximum: 12 }, numericality: { greater_than_or_equal_to: 0 }
+  validates :a_type, presence: true, length: { maximum: 8 }, inclusion: { in: %w[Saving Current NRI FD] }
+  validates :number, length: { maximum: 12 }, numericality: { only_integer: true }, allow_blank: false
+  validates :client_id, numericality: { only_integer: true }
 
   belongs_to :client
   has_many :transactions
   has_many :cards
-
-  private
-
-  def balance_valid
-    if self.balance < 0
-      errors.add(:balance, "Account balance is too low.")
-    end
-  end 
-
 end

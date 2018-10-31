@@ -1,7 +1,13 @@
+# frozen_string_literal: true
+
 class Branch < ApplicationRecord
-  validates :IFSC, presence: true, length: {maximum: 12}
-  validates :address, presence: true, length: {maximum: 30}
-  validates :number, presence: true, numericality:{only_integer: true}, length: {maximum: 10}
+  include AddressForm
+  include AddressValidations
+
+  validates :ifsc, presence: true, length: { maximum: 12 }, allow_blank: false
+  validates :number, numericality: { only_integer: true }, length: { maximum: 10 }
 
   has_many  :clients
+
+  before_create :form_address
 end
