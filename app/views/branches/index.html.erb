@@ -1,5 +1,9 @@
 <h1>Bank App</h1>
+<div class="nav">
+<%= link_to "new", new_branch_path %>
+</div>
 <div class="branchlist">
+  <h3>List of Branches</h3>
   <% @branches.each do |b| %>
     <table>
         <tbody>

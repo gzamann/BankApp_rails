@@ -4,6 +4,10 @@ body{
   text-align: center;
   font-family: sans-serif;
 }
+a{
+  color: #eee;
+  text-decoration: none;
+}
 h1{
   text-transform: uppercase;
   letter-spacing: 1.5px;
@@ -19,4 +23,17 @@ h1{
   border: 1px solid #7A542E;
 }
 .branchlist table {
+  margin:8px;
+}
+.bform{
+  text-align: start;
+  margin: 5%;
+}
+.bform input{
+  display: block;
+  margin: 16px 0;
+  background:transparent;
+  color: #eee;
+  border-radius: 0.5em;
+  border: 3px solid #7A542E;
 }

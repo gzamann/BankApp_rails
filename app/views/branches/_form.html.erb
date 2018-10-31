@@ -1,0 +1,13 @@
+<div class="bform">
+<h4>Add a Branch</h4>
+<p></p>
+<%= form_for :branch do |f|%>
+<%= f.text_field  "ifsc", "ifsc" => 14 %>
+<%= f.text_field  "number", "number" => 10 %>
+<%= f.text_field  "street", "street" => 20 %>
+<%= f.text_field  "city", "city" => 20 %>
+<%= f.text_field  "state", "state" => 20 %>
+<%= f.text_field  "pincode", "pincode" => 20 %>
+<%= f.submit %>
+<%end%>
+</div>
